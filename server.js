@@ -86,6 +86,24 @@ if (isDeveloping) {
             res.send(JSON.stringify({'data': result}));
     });
   });
+  // Get Areas of Product High Rating
+  app.post('/areasofacceptance', function (req, res) {
+    const sqlComments = "SELECT user_location_lat AS latitude, user_location_lon AS longitude," +
+          " rating AS rate FROM product_review WHERE product_id = '" + req.body.data + "' AND `rating` BETWEEN '2.5' AND '5' ";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get Areas of Product Low Rating
+  app.post('/areasofrejection', function (req, res) {
+    const sqlComments = "SELECT user_location_lat AS latitude, user_location_lon AS longitude," +
+          " rating AS rate FROM product_review WHERE product_id = '" + req.body.data + "' AND `rating` BETWEEN '0' AND '2.5' ";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
   // Get Locations Nearby
   app.post('/locationsNearBy', function (req, res) {
     const googleMapsClient = require('@google/maps').createClient({

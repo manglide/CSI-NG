@@ -10,6 +10,8 @@ import Comments from './Comments';
 import IconButton from 'material-ui/IconButton';
 import ShareIcon from 'material-ui-icons/Share';
 import Divider from 'material-ui/Divider';
+import AreaAcceptanceMap from './AreaAcceptanceMap';
+import AreaRejectionMap from './AreaRejectionMap';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -151,12 +153,16 @@ const ProductDisplay = (props) => {
       </div>
       <div className={externstyle.aboutCompetitor}>
         <div className="panel panel-success">
-          <div className="panel-heading">Area Acceptance Map</div>
-          <div className="panel-body">Panel Content</div>
+          <div className="panel-heading">Area Acceptance Map - 2.5 Stars and Above</div>
+          <div id="AreaAcceptanceMapElem" className={externstyle.panelBody}>
+            <AreaAcceptanceMap productid={props.productid} />
+          </div>
         </div>
         <div className="panel panel-danger">
-          <div className="panel-heading">Area Rejection Map</div>
-          <div className="panel-body">Panel Content</div>
+          <div className="panel-heading">Area Rejection Map - 2.5 Stars and Below</div>
+          <div id="AreaRejectionMapElem" className={externstyle.panelBody}>
+            <AreaRejectionMap productid={props.productid} />
+          </div>
         </div>
         <div className="panel panel-primary">
           <div className="panel-heading">Competitors</div>

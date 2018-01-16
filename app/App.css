@@ -1071,3 +1071,13 @@ visibility:hidden;
 .svg_icons{
   transform: scale(2.2);
 }
+.panelBody {
+  overflow: hidden;
+  width: 447px;
+  height: 300px;
+}
+.map {
+  width: 200px;
+  height: 40px;
+  border: thin solid red;
+}
