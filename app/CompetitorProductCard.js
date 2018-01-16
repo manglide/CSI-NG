@@ -23,6 +23,7 @@ const styles = theme => ({
   card: {
     maxWidth: 320,
     fontFamily: font,
+    margin: '0 auto'
     // minheight: '30vw'
   },
   media: {
@@ -48,7 +49,7 @@ const styles = theme => ({
   },
 });
 
-class ProductCard extends React.Component {
+class CompetitorProductCard extends React.Component {
 
   constructor() {
     super();
@@ -72,7 +73,7 @@ class ProductCard extends React.Component {
       margin: 1,
     };
     return (
-      <div>
+      <div className={externstyle.competitorProductCard}>
         <Card className={classes.card}>
           <CardHeader
             avatar={
@@ -152,77 +153,7 @@ class ProductCard extends React.Component {
                   }
                 </div>
               </Typography>
-              <Typography component="div" className={externstyle.SentimentsDiv}>
-                <div className={externstyle.cardTitleInnerExtendedChildren}>
-                  {
-                    this.props.likes > this.props.dislikes ?
-                    <div>
-                      <span>
-                        <GoodSentiment />
-                      </span>
-                      <div className={externstyle.textBelowRatingSentiment}>
-                        Good
-                      </div>
-                    </div>
-                    :
-                    <div>
-                      <span>
-                        <BadSentiment />
-                      </span>
-                      <div className={externstyle.textBelowRatingSentiment}>
-                        Bad
-                      </div>
-                    </div>
-                  }
-                </div>
-                <div>
-                  <div>
-                    <CardActions disableActionSpacing>
-                      <div>
-                        <IconButton className={externstyle.likebtn} aria-label="Add to favorites">
-                          <FavoriteIcon className={externstyle.favorite} />
-                        </IconButton>
-                        <div className={externstyle.likebtnText}>
-                          Like
-                        </div>
-                      </div>
-                      <div>
-                        <IconButton className={externstyle.sharebtn} aria-label="Share">
-                          <ShareIcon className={externstyle.share} />
-                        </IconButton>
-                        <div className={externstyle.likebtnText}>
-                          Share
-                        </div>
-                      </div>
-                      <div>
-                        <IconButton className={externstyle.commentbtn} aria-label="Share">
-                          <Comments className={externstyle.comment} />
-                        </IconButton>
-                        <div className={externstyle.peoplebtnText}>
-                          {this.props.usercomments}
-                        </div>
-                      </div>
-                      <div>
-                        <IconButton className={externstyle.locationbtn} aria-label="Map Location">
-                          <Locations className={externstyle.location} />
-                        </IconButton>
-                        <div className={externstyle.locationbtnText}>
-                          {this.props.locationcount}
-                        </div>
-                      </div>
-                      <div className={classes.flexGrow} />
-                    </CardActions>
-                  </div>
-                </div>
-              </Typography><hr />
-              <div>
-                <Typography type="subheading" className={externstyle.ingredientsTitle} component="div" color="error" align="center">
-                  Ingredients
-                </Typography>
-                <Typography className={externstyle.ingredients} component="div" color="default">
-                  {this.props.ingredients}
-                </Typography>
-              </div>
+              <hr />
               <Typography>
                   <Link style={{width: '100%', color: '#fff', 'text-decoration': 'none'}}  to={`/product/${this.props.productname}`}>
                     <Button style={{width: '100%', color: '#fff'}} className={classes.button} raised color="primary">
@@ -238,8 +169,8 @@ class ProductCard extends React.Component {
   }
 }
 
-ProductCard.propTypes = {
+CompetitorProductCard.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ProductCard);
+export default withStyles(styles)(CompetitorProductCard);

@@ -1,4 +1,4 @@
-.entry {
+mainprice.entry {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 20px;
     line-height: 1.42857143;
@@ -1061,6 +1061,11 @@ visibility:hidden;
   .shareProductPage {
     transform: scale(1.6);
   }
+  .goback {
+    width: 110px;
+    height: 40px;
+    border: thin solid red;
+  }
 }
 /******* Media Queries For Product Page Ends *******/
 
@@ -1080,4 +1085,13 @@ visibility:hidden;
   width: 200px;
   height: 40px;
   border: thin solid red;
+}
+.goback {
+  width: 110px;
+  height: 40px;
+  border: thin solid red;
+  float: right;
+}
+.competitorProductCard {
+  margin: 0 auto;
 }

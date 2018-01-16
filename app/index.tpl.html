@@ -74,31 +74,25 @@
         }
       }
       function AreaAcceptanceMapFunc(areas, lat, lon) {
-        console.log(lat);
-        console.log(lon);
         var map = new google.maps.Map(document.getElementById('AreaAcceptanceMapElem'),
                       {center: {lat: lat, lng: lon}, zoom: 13});
         areas.map(function(item, index) {
           var myLatLng = {lat: item.latitude, lng: item.longitude};
-          console.log(myLatLng);
-          var contentString = "Behold";
-          var infowindow = new google.maps.InfoWindow({content: contentString});
-          var marker = new google.maps.Marker({position: myLatLng, map: map, title: "Watch"});
-          marker.addListener('click', function() {infowindow.open(map, marker);});
+          // var contentString = "Behold";
+          // var infowindow = new google.maps.InfoWindow({content: contentString});
+          var marker = new google.maps.Marker({position: myLatLng, map: map});
+          // marker.addListener('click', function() {infowindow.open(map, marker);});
         });
       }
       function AreaRejectionMapFunc(areas, lat, lon) {
-        console.log(lat);
-        console.log(lon);
         var map = new google.maps.Map(document.getElementById('AreaRejectionMapElem'),
                       {center: {lat: lat, lng: lon}, zoom: 13});
         areas.map(function(item, index) {
           var myLatLng = {lat: item.latitude, lng: item.longitude};
-          console.log(myLatLng);
-          var contentString = "Behold";
-          var infowindow = new google.maps.InfoWindow({content: contentString});
-          var marker = new google.maps.Marker({position: myLatLng, map: map, title: "Watch"});
-          marker.addListener('click', function() {infowindow.open(map, marker);});
+          // var contentString = "Behold";
+          // var infowindow = new google.maps.InfoWindow({content: contentString});
+          var marker = new google.maps.Marker({position: myLatLng, map: map});
+          // marker.addListener('click', function() {infowindow.open(map, marker);});
         });
       }
       function AreaAcceptanceMapFuncNoData() {

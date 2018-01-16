@@ -7,7 +7,6 @@ class ProductsAPI extends React.Component {
     constructor(props) {
       super(props);
       this.state = {title: '', products: []};
-      // this._product = this._product.bind(this);
     }
 
     componentWillMount() {
@@ -33,7 +32,8 @@ class ProductsAPI extends React.Component {
       <NotFound />
       :
       this.state.products.map((item, index) => (
-           <ProductDisplay avatar={item.productname.charAt(0).toUpperCase()}
+           <ProductDisplay
+              avatar={item.productname.charAt(0).toUpperCase()}
               productname={item.productname}
               manufacturer={item.manufacturer.toUpperCase()}
               rating={item.rating}

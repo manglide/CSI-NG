@@ -12,6 +12,8 @@ import ShareIcon from 'material-ui-icons/Share';
 import Divider from 'material-ui/Divider';
 import AreaAcceptanceMap from './AreaAcceptanceMap';
 import AreaRejectionMap from './AreaRejectionMap';
+import Competitor from './Competitor';
+import CompetitorTwo from './CompetitorTwo';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -42,7 +44,12 @@ const ProductDisplay = (props) => {
           <div className={externstyle.product}>
               <div className={externstyle.productDisplay}>
                 <div className={externstyle.productInner} itemscope itemtype="http://schema.org/Product">
-                  <span className={externstyle.productpageTitle} itemprop="name">{props.productname}</span>
+                  <span className={externstyle.productpageTitle} itemprop="name">
+                    {props.productname}
+                    <div className={externstyle.goback}>
+
+                    </div>
+                  </span>
                    <div className={externstyle.productpagebTag} itemprop="manufacturer" itemscope itemtype="http://schema.org/manufacturer">
                       {props.manufacturer.toUpperCase()}
                    </div>
@@ -152,23 +159,26 @@ const ProductDisplay = (props) => {
           </div>
       </div>
       <div className={externstyle.aboutCompetitor}>
+        <div className="panel panel-primary">
+          <div className="panel-heading">Competitors and Markets</div>
+          <div className="panel-body">
+            <Competitor title={props.firstCompetition} />
+            <br />
+            <CompetitorTwo title={props.secondCompetition} />
+          </div>
+        </div>
         <div className="panel panel-success">
-          <div className="panel-heading">Area Acceptance Map - 2.5 Stars and Above</div>
+          <div className="panel-heading">Strength Area Acceptance Map - 2.5 Stars and Above</div>
           <div id="AreaAcceptanceMapElem" className={externstyle.panelBody}>
             <AreaAcceptanceMap productid={props.productid} />
           </div>
         </div>
         <div className="panel panel-danger">
-          <div className="panel-heading">Area Rejection Map - 2.5 Stars and Below</div>
+          <div className="panel-heading">Weak Area Rejection Map - 2.5 Stars and Below</div>
           <div id="AreaRejectionMapElem" className={externstyle.panelBody}>
             <AreaRejectionMap productid={props.productid} />
           </div>
         </div>
-        <div className="panel panel-primary">
-          <div className="panel-heading">Competitors</div>
-          <div className="panel-body">Panel Content</div>
-        </div>
-        <div className={externstyle.competitor}></div>
       </div>
     </div>
         );
