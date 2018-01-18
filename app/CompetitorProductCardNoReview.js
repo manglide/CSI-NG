@@ -105,11 +105,13 @@ class CompetitorProductCardNoReview extends React.Component {
             <Typography component="div" className={externstyle.afterRatingDiv}>
               <hr />
               <Typography>
-                  <Link style={{width: '100%', color: '#fff', 'text-decoration': 'none'}}  to={`/product/${this.props.productname}`}>
+                <div>
+                  <a href={`/product/${this.props.productname}`}>
                     <Button style={{width: '100%', color: '#fff'}} className={classes.button} raised color="primary">
                       View
                     </Button>
-                  </Link>
+                  </a>
+                </div>
               </Typography>
             </Typography>
           </CardContent>

@@ -1,21 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import Card, { CardHeader, CardMedia, CardContent, CardActions} from 'material-ui/Card';
+import Card, { CardHeader, CardMedia, CardContent} from 'material-ui/Card';
 import Avatar from 'material-ui/Avatar';
-import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import green from 'material-ui/colors/green';
-import FavoriteIcon from 'material-ui-icons/Favorite';
-import ShareIcon from 'material-ui-icons/Share';
 import StarRatingComponent from 'react-star-rating-component';
 import TrendUp from 'material-ui-icons/TrendingUp';
 import TrendDown from 'material-ui-icons/TrendingDown';
-import GoodSentiment from 'material-ui-icons/SentimentVerySatisfied';
-import BadSentiment from 'material-ui-icons/SentimentVeryDissatisfied';
 import externstyle from './App.css';
-import Locations from 'material-ui-icons/PinDrop';
-import Comments from 'material-ui-icons/People';
+// import Comments from 'material-ui-icons/People';
 import Button from 'material-ui/Button';
 const font = "'Open Sans Condensed', sans-serif";
 import { Link } from 'react-router-dom';
@@ -155,11 +149,13 @@ class CompetitorProductCard extends React.Component {
               </Typography>
               <hr />
               <Typography>
-                  <Link style={{width: '100%', color: '#fff', 'text-decoration': 'none'}}  to={`/product/${this.props.productname}`}>
-                    <Button style={{width: '100%', color: '#fff'}} className={classes.button} raised color="primary">
-                      View
-                    </Button>
-                  </Link>
+                  <div>
+                    <a href={`/product/${this.props.productname}`}>
+                      <Button style={{width: '100%', color: '#fff'}} className={classes.button} raised color="primary">
+                        View
+                      </Button>
+                    </a>
+                  </div>
               </Typography>
             </Typography>
           </CardContent>

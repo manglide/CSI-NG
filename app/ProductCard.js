@@ -81,13 +81,8 @@ class ProductCard extends React.Component {
               </Avatar>
             }
             title={this.props.productname}
-            subheader={
-              <div>
-                <div className={externstyle.productpagebTag}>
-                  BY<br />{this.props.manufacturer}
-                </div>
-              </div>
-            }
+            header={this.props.manufacturer}
+            subheader={this.props.manufacturer}
           />
           <CardMedia>
             <img src="https://placeimg.com/281/74/nature" alt="" />
