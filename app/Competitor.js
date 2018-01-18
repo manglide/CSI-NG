@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import NoCompetitorFound from './NoCompetitorFound';
 import CompetitorProductCard from './CompetitorProductCard';
-const URL = '/productsAPI';
+import CompetitorProductCardNoReview from './CompetitorProductCardNoReview';
+const URL = '/productsAPICompetitor';
 class Competitor extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {title: '', products: []};
+      this.state = {title: '', products: [], emptyProducts: [], results: ''};
     }
 
     componentWillMount() {
@@ -19,8 +19,15 @@ class Competitor extends React.Component {
         data: this.state.title,
       })
       .then(res => {
-        const products = res.data.data.map(obj => obj);
-        self.setState({ products: products });
+        if (res.data.status === 'withresults') {
+          self.setState({ results: 'yes' });
+          const products = res.data.data.map(obj => obj);
+          self.setState({ products: products });
+        } else if (res.data.status === 'noresults') {
+          self.setState({ results: 'no' });
+          const emptyproducts = res.data.data.map(obj => obj);
+          self.setState({ emptyProducts: emptyproducts });
+        }
       })
       .catch( error => {
         console.log(error);
@@ -28,8 +35,14 @@ class Competitor extends React.Component {
     }
 
     render() {
-      const block = (this.state.products.length === 0) ?
-      <NoCompetitorFound />
+      const block = (this.state.results === 'no') ?
+      this.state.emptyProducts.map((item, index) => (
+      <CompetitorProductCardNoReview avatar={item.productname.charAt(0).toUpperCase()}
+         productname={item.productname}
+         category={item.category}
+         productid={item.product_ID}
+       />
+      ))
       :
       this.state.products.map((item, index) => (
         <CompetitorProductCard avatar={item.productname.charAt(0).toUpperCase()}

@@ -72,6 +72,7 @@ class DataCards extends React.Component {
                     locationcount={item.locationcount}
                     ingredients={item.ingredients}
                     productid={item.product_ID}
+                    category={item.category}
                   />
                 </Paper>
               </Grid>

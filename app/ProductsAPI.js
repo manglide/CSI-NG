@@ -47,6 +47,7 @@ class ProductsAPI extends React.Component {
               secondCompetition={item.secondCompetition}
               ingredients={item.ingredients}
               productid={item.product_ID}
+              category={item.category}
             />
       ));
       return (

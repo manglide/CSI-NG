@@ -48,9 +48,10 @@ if (isDeveloping) {
   app.get('/products', function (req, res) {
     const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
     			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
-          "all_products.ingredients AS ingredients FROM all_products " +
+          "all_products.ingredients AS ingredients, product_categories.category AS category FROM all_products " +
     			"JOIN product_review ON all_products.id = product_review.product_id " +
     			"JOIN products ON all_products.id = products.id " +
+          "JOIN product_categories ON all_products.category = product_categories.id " +
     			"WHERE all_products.about <> ''  " +
     			"GROUP BY all_products.id ORDER BY rating DESC";
     connection.query(sql, function (error, result) {
@@ -71,9 +72,47 @@ if (isDeveloping) {
           "GROUP BY all_products.id ORDER BY rating DESC";
     connection.query(sql, function (error, result) {
       if (error) throw error;
-      // payload.data = JSON.stringify(result);
-      // console.log(req.body.data + ' fed');
-      res.send(JSON.stringify({'data': result}));
+      if (!result.length) {
+        // Meaning Row is Empty
+        const sql_ = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.competitor_1 AS firstCompetition, " +
+              " all_products.competitor_2 AS secondCompetition, product_categories.category AS category FROM all_products " +
+              " JOIN product_categories ON all_products.category = product_categories.id " +
+              " WHERE all_products.title = '" + req.body.data + "' ";
+        connection.query(sql_, function (error, resultD) {
+          if (error) throw error;
+          res.send(JSON.stringify({'data': resultD, 'status': 'noresults'}));
+        });
+      } else {
+        res.send(JSON.stringify({'data': result, 'status': 'withresults'}));
+      }
+    });
+  });
+  app.post('/productsAPICompetitor', function (req, res) {
+    //const payload = {};
+    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
+          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
+          " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
+          "product_categories.category AS category FROM all_products " +
+          "JOIN product_review ON all_products.id = product_review.product_id " +
+          "JOIN products ON all_products.id = products.id " +
+          "JOIN product_categories ON all_products.category = product_categories.id " +
+          "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
+          "GROUP BY all_products.id ORDER BY rating DESC";
+    connection.query(sql, function (error, result) {
+      if (error) throw error;
+      if (!result.length) {
+        // Meaning Row is Empty
+        const sql_ = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.competitor_1 AS firstCompetition, " +
+              " all_products.competitor_2 AS secondCompetition, product_categories.category AS category FROM all_products " +
+              " JOIN product_categories ON all_products.category = product_categories.id " +
+              " WHERE all_products.title = '" + req.body.data + "' ";
+        connection.query(sql_, function (error, resultD) {
+          if (error) throw error;
+          res.send(JSON.stringify({'data': resultD, 'status': 'noresults'}));
+        });
+      } else {
+        res.send(JSON.stringify({'data': result, 'status': 'withresults'}));
+      }
     });
   });
   // Get comments
@@ -131,9 +170,10 @@ if (isDeveloping) {
   app.get('/products', function (req, res) {
     const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
     			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
-          "all_products.ingredients AS ingredients FROM all_products " +
+          "all_products.ingredients AS ingredients, product_categories.category AS category FROM all_products " +
     			"JOIN product_review ON all_products.id = product_review.product_id " +
     			"JOIN products ON all_products.id = products.id " +
+          "JOIN product_categories ON all_products.category = product_categories.id " +
     			"WHERE all_products.about <> ''  " +
     			"GROUP BY all_products.id ORDER BY rating DESC";
       connection.query(sql, function (error, result) {
@@ -186,6 +226,34 @@ if (isDeveloping) {
       // console.log(JSON.stringify(response.json.results));
       // res.send(JSON.stringify({'data': response.json.results}));
       res.send(response.json.results);
+    });
+  });
+  app.post('/productsAPICompetitor', function (req, res) {
+    //const payload = {};
+    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
+          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
+          " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
+          "product_categories.category AS category FROM all_products " +
+          "JOIN product_review ON all_products.id = product_review.product_id " +
+          "JOIN products ON all_products.id = products.id " +
+          "JOIN product_categories ON all_products.category = product_categories.id " +
+          "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
+          "GROUP BY all_products.id ORDER BY rating DESC";
+    connection.query(sql, function (error, result) {
+      if (error) throw error;
+      if (!result.length) {
+        // Meaning Row is Empty
+        const sql_ = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.competitor_1 AS firstCompetition, " +
+              " all_products.competitor_2 AS secondCompetition, product_categories.category AS category FROM all_products " +
+              " JOIN product_categories ON all_products.category = product_categories.id " +
+              " WHERE all_products.title = '" + req.body.data + "' ";
+        connection.query(sql_, function (error, resultD) {
+          if (error) throw error;
+          res.send(JSON.stringify({'data': resultD, 'status': 'noresults'}));
+        });
+      } else {
+        res.send(JSON.stringify({'data': result, 'status': 'withresults'}));
+      }
     });
   });
   app.use(express.static(__dirname + '/dist'));
