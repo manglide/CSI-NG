@@ -14,7 +14,6 @@ import AreaAcceptanceMap from './AreaAcceptanceMap';
 import AreaRejectionMap from './AreaRejectionMap';
 import Competitor from './Competitor';
 import CompetitorTwo from './CompetitorTwo';
-import Typography from 'material-ui/Typography';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -45,12 +44,18 @@ const ProductDisplay = (props) => {
           <div className={externstyle.product}>
               <div className={externstyle.productDisplay}>
                 <div className={externstyle.productInner} itemscope itemtype="http://schema.org/Product">
-                  <span className={externstyle.productpageTitle} itemprop="name">
-                    {props.productname}
-                    <div className={externstyle.goback}>
-
-                    </div>
-                  </span>
+                  <div className={externstyle.goback}>
+                    <a href="/" title="Go Back">
+                      <button type="button" className="btn btn-success navbar-btn">
+                          <span className="glyphicon glyphicon-chevron-left"></span>
+                      </button>
+                    </a>
+                  </div>
+                  <div>
+                    <span className={externstyle.productpageTitle} itemprop="name">
+                      {props.productname}
+                    </span>
+                  </div>
                   <div className={externstyle.productpagebTagCategory} itemprop="category" itemscope itemtype="http://schema.org/manufacturer">
                         {props.category.toUpperCase()}
                   </div>

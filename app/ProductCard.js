@@ -85,12 +85,16 @@ class ProductCard extends React.Component {
             subheader={this.props.manufacturer}
           />
           <CardMedia>
-            <img src="https://placeimg.com/281/74/nature" alt="" />
+            <img width="281" height="224"  alt={this.props.productname} title={this.props.productname}
+              src={`${this.props.image_1}`}  />
             <div style={{fontSize: 24, padding: 12}}>
               {
                 <StarRatingComponent
                   name={this.props.productname + ' Rating'}
                   // starColor="#9C27B0"
+                  // src="https://placeimg.com/281/224/nature"
+                  // src={`${this.props.image_1}`}
+                  // src={require(`${this.props.image_1}`)}
                   starColor="#F60437"
                   emptyStarColor="#000"
                   editing={false}

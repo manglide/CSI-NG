@@ -6,6 +6,8 @@ import {
 } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
+// import logo from './logo.svg';
+import Logo from 'svg-react-loader?name=Logo!./logo.svg';
 import Feedback from './Feedback';
 import GlobalAppBar from './GlobalAppBar';
 import NotFound from './NotFound';
@@ -29,26 +31,40 @@ const theme = createMuiTheme({
     htmlFontSize: 7,
   },
 });
+class App extends React.Component {
 
-const App = () => (
-  <Router>
-    <MuiThemeProvider theme={theme}>
-    <div>
-      <GlobalAppBar />
-      <hr/>
-      <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/about" component={About}/>
-        <Route path="/feedback" component={Feedback}/>
-        <Route path="/product/:title" component={SingleProduct}/>
-        <Route path="/productsAPI" component={ProductsAPI}/>
-        <Route path="/comments" component={Comments}/>
-        <Route path="/locationsNearBy" component={LocationsNearBy}/>
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-    </MuiThemeProvider>
-  </Router>
-);
-
+componentDidMount() {
+  const ele = document.getElementById('ipl-progress-indicator')
+  if (ele) {
+    setTimeout(() => {
+      ele.classList.add('available')
+      setTimeout(() => {
+        ele.outerHTML = ''
+      }, 2000)
+    }, 1000)
+  }
+}
+render() {
+  return (
+      <Router>
+        <MuiThemeProvider theme={theme}>
+        <div>
+          <GlobalAppBar />
+          <hr/>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route path="/about" component={About}/>
+            <Route path="/feedback" component={Feedback}/>
+            <Route path="/product/:title" component={SingleProduct}/>
+            <Route path="/productsAPI" component={ProductsAPI}/>
+            <Route path="/comments" component={Comments}/>
+            <Route path="/locationsNearBy" component={LocationsNearBy}/>
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+        </MuiThemeProvider>
+      </Router>
+    );
+}
+}
 export default App;

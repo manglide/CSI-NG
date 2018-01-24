@@ -73,6 +73,8 @@ class DataCards extends React.Component {
                     ingredients={item.ingredients}
                     productid={item.product_ID}
                     category={item.category}
+                    image_1={item.productImage_1}
+                    image_2={item.productImage_2}
                   />
                 </Paper>
               </Grid>

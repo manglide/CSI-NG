@@ -46,14 +46,32 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('/products', function (req, res) {
-    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
-    			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
-          "all_products.ingredients AS ingredients, product_categories.category AS category FROM all_products " +
+    /* const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
+    			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
+          "all_products.ingredients AS ingredients, product_categories.category AS category, " +
+          "CONCAT('localhost/csi/', all_products.product_image_1) AS productImage_1, " +
+          "CONCAT('localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
     			"JOIN product_review ON all_products.id = product_review.product_id " +
-    			"JOIN products ON all_products.id = products.id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
     			"WHERE all_products.about <> ''  " +
-    			"GROUP BY all_products.id ORDER BY rating DESC";
+    			"GROUP BY all_products.id ORDER BY rating DESC";*/
+    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, " +
+          "SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating," +
+          "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
+          "product_categories.category AS category, " +
+          "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
+          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
+          "JOIN product_review ON all_products.id = product_review.product_id " +
+          "JOIN product_categories ON all_products.category = product_categories.id " +
+          "WHERE " +
+          "all_products.about IS NOT NULL AND " +
+          "all_products.manufacturer IS NOT NULL AND " +
+          "all_products.address IS NOT NULL AND " +
+          "all_products.ingredients IS NOT NULL AND " +
+          "all_products.product_image_1 IS NOT NULL AND " +
+          "all_products.product_image_2 IS NOT NULL AND " +
+          "all_products.price IS NOT NULL " +
+          "GROUP BY all_products.id ORDER BY rating DESC ";
     connection.query(sql, function (error, result) {
       if (error) throw error;
       res.send(JSON.stringify({'data': result}));
@@ -62,11 +80,10 @@ if (isDeveloping) {
   app.post('/productsAPI', function (req, res) {
     //const payload = {};
     const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
-          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
+          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
-          "JOIN products ON all_products.id = products.id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
           "GROUP BY all_products.id ORDER BY rating DESC";
@@ -168,14 +185,23 @@ if (isDeveloping) {
   });
 } else {
   app.get('/products', function (req, res) {
-    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
-    			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
-          "all_products.ingredients AS ingredients, product_categories.category AS category FROM all_products " +
-    			"JOIN product_review ON all_products.id = product_review.product_id " +
-    			"JOIN products ON all_products.id = products.id " +
+    const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, " +
+          "SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating," +
+          "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
+          "product_categories.category AS category, " +
+          "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
+          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
+          "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
-    			"WHERE all_products.about <> ''  " +
-    			"GROUP BY all_products.id ORDER BY rating DESC";
+          "WHERE " +
+          "all_products.about IS NOT NULL AND " +
+          "all_products.manufacturer IS NOT NULL AND " +
+          "all_products.address IS NOT NULL AND " +
+          "all_products.ingredients IS NOT NULL AND " +
+          "all_products.product_image_1 IS NOT NULL AND " +
+          "all_products.product_image_2 IS NOT NULL AND " +
+          "all_products.price IS NOT NULL " +
+          "GROUP BY all_products.id ORDER BY rating DESC ";
       connection.query(sql, function (error, result) {
         if (error) throw error;
         res.send(JSON.stringify({result}));
@@ -184,11 +210,10 @@ if (isDeveloping) {
   app.post('/productsAPI', function (req, res) {
     //const payload = {};
     const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
-          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
+          "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
-          "JOIN products ON all_products.id = products.id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
           "GROUP BY all_products.id ORDER BY rating DESC";

@@ -1083,7 +1083,6 @@ visibility:hidden;
   .goback {
     width: 110px;
     height: 40px;
-    border: thin solid red;
   }
 }
 /******* Media Queries For Product Page Ends *******/
@@ -1108,8 +1107,6 @@ visibility:hidden;
 .goback {
   width: 110px;
   height: 40px;
-  border: thin solid red;
-  float: right;
 }
 .competitorProductCard {
   margin: 0 auto;
