@@ -37,39 +37,44 @@ class Comments extends React.Component {
     :
     this.state.comments.map((item, index) => (
       <div className={externstyle.aboutProductComments} itemprop="review" itemscope itemtype="http://schema.org/Review">
-        <span className={externstyle.individualComment} itemprop="name">{item.comment}</span>
-          <span className={externstyle.individualComment} itemprop="author"></span><br />
-          <meta itemprop="datePublished" content={item.datePublished} />
-          <span itemprop="datePublished">{item.datePublished}</span>
-            <div className={externstyle.smallRatingDiv} itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-            <div>
-              {
-                <StarRatingComponent
-                  // starColor="#9C27B0"
-                  starColor="#F60437"
-                  emptyStarColor="#000"
-                  editing={false}
-                  starCount={5}
-                  value={item.rate}
-                  renderStarIcon={(index, value) => {
-                    return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
-                  }}
-                  renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
-                />
-              }
+          <div className={externstyle.individualUserAvatarAndName}>
+            <div className={externstyle.avatar}>
+              <img src="https://igx.4sqi.net/img/user/32x32/blank_boy.png" width="30" height="30" />
             </div>
-            <div>
-              <meta itemprop="worstRating" content={item.rate} />
-                <span itemprop="ratingValue">{item.rate}</span>/
-                <span itemprop="bestRating">5</span>stars
+            <div className={externstyle.UserAndComment}>
+              <div>
+                <span className={externstyle.individualComment} itemprop="author">Mark</span>
+              </div>
+              <span className={externstyle.individualComment} itemprop="name">{item.comment}</span>
+              <div className={externstyle.smallRatingDiv} itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+              <div>
+                {
+                  <StarRatingComponent
+                    // starColor="#9C27B0"
+                    starColor="#F60437"
+                    emptyStarColor="#000"
+                    editing={false}
+                    starCount={5}
+                    value={item.rate}
+                    renderStarIcon={(index, value) => {
+                      return <span className={index <= value ? 'fa fa-star' : 'fa fa-star-o'} />;
+                    }}
+                    renderStarIconHalf={() => <span className="fa fa-star-half-full" />}
+                  />
+                }
+              </div>
+              <div>
+                <meta itemprop="worstRating" content={item.rate} />
+                  <span itemprop="ratingValue">{item.rate}</span>/
+                  <span itemprop="bestRating">5</span>stars
+              </div>
+              </div>
             </div>
+            <div className={externstyle.DateX}>
+              <meta itemprop="datePublished" content={item.datePublished} />
+              <span itemprop="datePublished">{item.datePublished}</span>
             </div>
-          <span itemprop="description">
-            <span className={externstyle.individualComment} itemprop="location">
-              <div className={externstyle.individualCommentBanner}>Review nearby locations</div><hr /> <LocationsNearBy lat={item.latitude} lon={item.longitude} />
-            </span>
-          </span>
-          <Divider />
+          </div>
       </div>
     ));
     return (
@@ -81,3 +86,10 @@ class Comments extends React.Component {
 }
 
 export default Comments;
+
+// <div className={externstyle.individualCommentBanner}>Review nearby locations</div><hr />
+// <LocationsNearBy lat={item.latitude} lon={item.longitude} />
+/* <span itemprop="description">
+  <span className={externstyle.individualComment} itemprop="location">
+  </span>
+</span>*/
