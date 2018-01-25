@@ -41,8 +41,6 @@ class CompetitorTwo extends React.Component {
          productname={item.productname}
          category={item.category}
          productid={item.product_ID}
-         image_1={item.productImage_1}
-         image_2={item.productImage_2}
        />
       ))
       :

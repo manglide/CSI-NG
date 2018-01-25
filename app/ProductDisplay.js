@@ -177,6 +177,10 @@ const ProductDisplay = (props) => {
           </div>
       </div>
       <div className={externstyle.aboutCompetitor}>
+        <div className="panel panel-danger">
+          <div className="panel-heading">Review of {props.productname} , {props.firstCompetition} and {props.secondCompetition}</div>
+          <div className="panel-body"></div>
+        </div>
         <div className="panel panel-primary">
           <div className="panel-heading">Competitors and Markets</div>
           <div className="panel-body">
