@@ -12,7 +12,6 @@ import externstyle from './App.css';
 // import Comments from 'material-ui-icons/People';
 import Button from 'material-ui/Button';
 const font = "'Open Sans Condensed', sans-serif";
-import { Link } from 'react-router-dom';
 const styles = theme => ({
   card: {
     maxWidth: 320,
@@ -80,7 +79,12 @@ class CompetitorProductCard extends React.Component {
             subheader={this.props.manufacturer}
           />
           <CardMedia>
-            <img src="https://placeimg.com/281/74/nature" alt="" />
+            {
+              (this.props.image_1 === '' || this.props.image_1 === undefined) ?
+              <img src="http://localhost/csi/images/default-product.png" alt={this.props.productname} title={this.props.productname} />
+              :
+              <img width="281" height="224" src={`${this.props.image_1}`} alt={this.props.productname} title={this.props.productname} />
+            }
             <div style={{fontSize: 24, padding: 12}}>
               {
                 <StarRatingComponent

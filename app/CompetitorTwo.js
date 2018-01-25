@@ -41,6 +41,8 @@ class CompetitorTwo extends React.Component {
          productname={item.productname}
          category={item.category}
          productid={item.product_ID}
+         image_1={item.productImage_1}
+         image_2={item.productImage_2}
        />
       ))
       :
@@ -56,6 +58,9 @@ class CompetitorTwo extends React.Component {
            usercomments={item.usercomments}
            locationcount={item.locationcount}
            productid={item.product_ID}
+           category={item.category}
+           image_1={item.productImage_1}
+           image_2={item.productImage_2}
          />
       ));
       return (

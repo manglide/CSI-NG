@@ -6,11 +6,9 @@ import Avatar from 'material-ui/Avatar';
 import Typography from 'material-ui/Typography';
 import green from 'material-ui/colors/green';
 import StarRatingComponent from 'react-star-rating-component';
-import TrendingFlat from 'material-ui-icons/TrendingFlat';
 import externstyle from './App.css';
 import Button from 'material-ui/Button';
 const font = "'Open Sans Condensed', sans-serif";
-import { Link } from 'react-router-dom';
 const styles = theme => ({
   card: {
     maxWidth: 320,
@@ -76,7 +74,12 @@ class CompetitorProductCardNoReview extends React.Component {
             title={this.props.productname}
           />
           <CardMedia>
-            <img src="https://placeimg.com/281/74/nature" alt="" />
+            {
+              (this.props.image_1 === '' || this.props.image_1 === undefined) ?
+              <img src="http://localhost/csi/images/default-product.png" alt={this.props.productname} title={this.props.productname} />
+              :
+              <img src={`${this.props.image_1}`} alt={this.props.productname} title={this.props.productname} />
+            }
             <div style={{fontSize: 24, padding: 12}}>
               {
                 <StarRatingComponent
@@ -104,15 +107,6 @@ class CompetitorProductCardNoReview extends React.Component {
             </Typography>
             <Typography component="div" className={externstyle.afterRatingDiv}>
               <hr />
-              <Typography>
-                <div>
-                  <a href={`/product/${this.props.productname}`}>
-                    <Button style={{width: '100%', color: '#fff'}} className={classes.button} raised color="primary">
-                      View
-                    </Button>
-                  </a>
-                </div>
-              </Typography>
             </Typography>
           </CardContent>
         </Card>

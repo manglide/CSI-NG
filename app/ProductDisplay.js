@@ -66,7 +66,13 @@ const ProductDisplay = (props) => {
                       {props.manufacturer.toUpperCase()}
                    </div>
                    <div className={externstyle.productImageProductPageWrapper}>
-                     <img className={externstyle.productImage} itemprop="image" src="https://placeimg.com/750/224/nature" alt={props.productname} />
+                     <img className={externstyle.productImage} height="224"
+                       itemprop="image"
+                       // src="https://placeimg.com/750/224/nature"
+                       src={`${props.image_1}`}
+                       alt={props.productname}
+                       title={props.productname}
+                     />
                    </div>
                   <div className={externstyle.middleRowStarAndIcons}>
                     <div className={externstyle.mainRatingOnProductPage}>
