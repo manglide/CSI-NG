@@ -178,6 +178,45 @@ if (isDeveloping) {
             res.send(JSON.stringify({'data': result}));
     });
   });
+  // Get Likes for High Charts
+  app.post('/chartsreviewlikes', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(SUM(product_review.likes),0) AS likes " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get dislikes for High Charts
+  app.post('/chartsreviewdislikes', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(SUM(product_review.dislikes),0) AS dislikes " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get rating for High Charts
+  app.post('/chartsreviewrating', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(AVG(product_review.rating),0) AS rating " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
   // Get Locations Nearby
   app.post('/locationsNearBy', function (req, res) {
     const googleMapsClient = require('@google/maps').createClient({
@@ -256,6 +295,45 @@ if (isDeveloping) {
     const sqlComments = "SELECT likes AS likes, dislikes AS dislike, rating AS rate, " +
           " user_comments AS comment, user_location_lat AS latitude, user_location_lon AS longitude," +
           " date AS datePublished FROM product_review WHERE product_id = '" + req.body.data + "' ";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get Likes for High Charts
+  app.post('/chartsreviewlikes', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(SUM(product_review.likes),0) AS likes " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get dislikes for High Charts
+  app.post('/chartsreviewdislikes', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(SUM(product_review.dislikes),0) AS dislikes " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
+    connection.query(sqlComments, function(error, result) {
+            if (error) throw error;
+            res.send(JSON.stringify({'data': result}));
+    });
+  });
+  // Get rating for High Charts
+  app.post('/chartsreviewrating', function (req, res) {
+    const sqlComments = "SELECT all_products.title AS productname, " +
+"IFNULL(AVG(product_review.rating),0) AS rating " +
+" FROM all_products " +
+"JOIN product_review ON all_products.id = product_review.product_id " +
+"WHERE all_products.title IN ('" + req.body.data1 + "','" + req.body.data2 + "','" + req.body.data3 + "') " +
+"GROUP BY all_products.title";
     connection.query(sqlComments, function(error, result) {
             if (error) throw error;
             res.send(JSON.stringify({'data': result}));

@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJx99St761cS-K53mOq_1v9S1gPoIpHY4"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
 
     <!-- Optional theme -->
@@ -286,6 +287,171 @@
         var el = document.getElementById('AreaRejectionMapElem');
         $(el).css({'height':'auto'});
         el.innerHTML = "<div class='noLocationDataFound'>No Location Data Found</div>";
+      }
+      function makeBarChartHighLikes(areas) {
+        var _load = areas;
+                        this.point = [];
+																								for(var key in _load) {
+																											if(_load.hasOwnProperty(key)) {
+																												var _obj = {};
+																												_obj.name = _load[key].productname;
+                            _obj.y = parseInt(_load[key].likes);
+                            this.point.push(_obj);
+																											}
+																								}
+																								var tx = [];
+																							 var bx = {
+																												type: "bar",
+																												name: "Products Likes Bar Chart",
+																												colorByPoint :true,
+																												data: this.point
+																								};
+																								tx.push(bx);
+                        var options = {
+                                                    chart: {
+                                                        renderTo: 'productsreviewlikes',
+                                                        plotBackgroundColor: null,
+                                                        plotBorderWidth: null,
+                                                        plotShadow: false
+                                                    },
+                                                    title: {
+                                                        text: 'Products Likes Bar Chart'
+                                                    },
+                                                    tooltip: {
+                                                        formatter: function() {
+                                                            return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                        }
+                                                    },
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                enabled: true,
+                                                                color: '#000000',
+                                                                connectorColor: '#000000',
+                                                                formatter: function() {
+                                                                    return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                                }
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: []
+                                                };
+                                                options.series = tx;
+                                                chart = new Highcharts.Chart(options);
+        console.log(areas);
+      }
+      function makeBarChartHighDisLikes(areas) {
+        var _load = areas;
+                        this.point = [];
+																								for(var key in _load) {
+																											if(_load.hasOwnProperty(key)) {
+																												var _obj = {};
+																												_obj.name = _load[key].productname;
+                            _obj.y = parseInt(_load[key].dislikes);
+                            this.point.push(_obj);
+																											}
+																								}
+																								var tx = [];
+																							 var bx = {
+																												type: "pie",
+																												name: "Products DisLikes Bar Chart",
+																												colorByPoint :true,
+																												data: this.point
+																								};
+																								tx.push(bx);
+                        var options = {
+                                                    chart: {
+                                                        renderTo: 'productsreviewdislikes',
+                                                        plotBackgroundColor: null,
+                                                        plotBorderWidth: null,
+                                                        plotShadow: false
+                                                    },
+                                                    title: {
+                                                        text: 'Products DisLikes Bar Chart'
+                                                    },
+                                                    tooltip: {
+                                                        formatter: function() {
+                                                            return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                        }
+                                                    },
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                enabled: true,
+                                                                color: '#000000',
+                                                                connectorColor: '#000000',
+                                                                formatter: function() {
+                                                                    return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                                }
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: []
+                                                };
+                                                options.series = tx;
+                                                chart = new Highcharts.Chart(options);
+        console.log(areas);
+      }
+      function makeBarChartHighRating(areas) {
+        var _load = areas;
+                        this.point = [];
+																								for(var key in _load) {
+																											if(_load.hasOwnProperty(key)) {
+																												var _obj = {};
+																												_obj.name = _load[key].productname;
+                            _obj.y = parseInt(_load[key].rating);
+                            this.point.push(_obj);
+																											}
+																								}
+																								var tx = [];
+																							 var bx = {
+																												type: "pie",
+																												name: "Products Rating Bar Chart",
+																												colorByPoint :true,
+																												data: this.point
+																								};
+																								tx.push(bx);
+                        var options = {
+                                                    chart: {
+                                                        renderTo: 'productsreviewrating',
+                                                        plotBackgroundColor: null,
+                                                        plotBorderWidth: null,
+                                                        plotShadow: false
+                                                    },
+                                                    title: {
+                                                        text: 'Products Rating Bar Chart'
+                                                    },
+                                                    tooltip: {
+                                                        formatter: function() {
+                                                            return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                        }
+                                                    },
+                                                    plotOptions: {
+                                                        pie: {
+                                                            allowPointSelect: true,
+                                                            cursor: 'pointer',
+                                                            dataLabels: {
+                                                                enabled: true,
+                                                                color: '#000000',
+                                                                connectorColor: '#000000',
+                                                                formatter: function() {
+                                                                    return '<b>' + this.point.name + '</b> ' + this.point.y;
+                                                                }
+                                                            },
+                                                            showInLegend: true
+                                                        }
+                                                    },
+                                                    series: []
+                                                };
+                                                options.series = tx;
+                                                chart = new Highcharts.Chart(options);
+        console.log(areas);
       }
     </script>
   </head>

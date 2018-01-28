@@ -14,6 +14,9 @@ import AreaAcceptanceMap from './AreaAcceptanceMap';
 import AreaRejectionMap from './AreaRejectionMap';
 import Competitor from './Competitor';
 import CompetitorTwo from './CompetitorTwo';
+import HighChartsReviewLikes from './HighChartsReviewLikes';
+import HighChartsReviewDisLikes from './HighChartsReviewDisLikes';
+import HighChartsReviewRating from './HighChartsReviewRating';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -177,9 +180,23 @@ const ProductDisplay = (props) => {
           </div>
       </div>
       <div className={externstyle.aboutCompetitor}>
+        <div className="panel panel-success">
+          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart</div>
+          <div className="panel-body" id="productsreviewlikes">
+            <HighChartsReviewLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
+          </div>
+        </div>
         <div className="panel panel-danger">
-          <div className="panel-heading">Review of {props.productname} , {props.firstCompetition} and {props.secondCompetition}</div>
-          <div className="panel-body"></div>
+          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart</div>
+          <div className="panel-body" id="productsreviewdislikes">
+            <HighChartsReviewDisLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
+          </div>
+        </div>
+        <div className="panel panel-primary">
+          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart</div>
+          <div className="panel-body" id="productsreviewrating">
+            <HighChartsReviewRating title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
+          </div>
         </div>
         <div className="panel panel-primary">
           <div className="panel-heading">Competitors and Markets</div>

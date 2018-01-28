@@ -93,3 +93,23 @@ export default Comments;
   <span className={externstyle.individualComment} itemprop="location">
   </span>
 </span>*/
+/*
+<div>
+  <div>
+      <a href="#" className="btn btn-success btn-small">
+        <span className="glyphicon glyphicon-thumbs-up"></span>
+      </a>
+      <div className={externstyle.textBelowRatings}>
+        {0}
+      </div>
+  </div>
+  <div>
+      <a href="#" className="btn btn-danger btn-small">
+        <span className="glyphicon glyphicon-thumbs-down"></span>
+      </a>
+      <div className={externstyle.textBelowRatings}>
+        {0}
+      </div>
+  </div>
+</div>
+*/
