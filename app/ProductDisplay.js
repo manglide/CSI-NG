@@ -17,6 +17,7 @@ import CompetitorTwo from './CompetitorTwo';
 import HighChartsReviewLikes from './HighChartsReviewLikes';
 import HighChartsReviewDisLikes from './HighChartsReviewDisLikes';
 import HighChartsReviewRating from './HighChartsReviewRating';
+import MetaTags from 'react-meta-tags';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -42,6 +43,15 @@ const styles = theme => ({
 const ProductDisplay = (props) => {
   return (
     <div className={externstyle.productWrapper}>
+      <MetaTags>
+            <title>{props.productname}</title>
+            <meta id="meta-description" name="description" content={props.description} />
+            <meta id="og:type" property="og:type" content="product" />
+            <meta id="og:region" property="og:region" content="NG"/>
+            <meta id="og:country-name" property="og:country-name" content="NIGERIA"/>
+            <meta id="og-title" property="og:title" content={props.productname} />
+            <meta id="og-image" property="og:image" content={`${props.image_1}`} />
+      </MetaTags>
       <div className={externstyle.adsenseBanner}>Adsense Banner Here</div>
       <div className={externstyle.aboutProduct}>
           <div className={externstyle.product}>
