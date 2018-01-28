@@ -200,22 +200,20 @@ const ProductDisplay = (props) => {
           aria-expanded="true"
           aria-controls="productsreviewdislikes">
           <a data-toggle="collapse" href="#productsreviewdislikes">
-            <i className="glyphicon glyphicon-triangle-right"></i>
-            {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart
+            <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart
           </a>
         </div>
           <div className="panel-body collapse in" id="productsreviewdislikes">
             <HighChartsReviewDisLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
-        <div className="panel panel-primary">
+        <div className="panel panel-success">
           <div className="panel-heading" toggle="collapse"
           data-target="#productsreviewrating"
           aria-expanded="true"
           aria-controls="productsreviewrating">
           <a data-toggle="collapse" href="#productsreviewrating">
-            <i className="glyphicon glyphicon-triangle-right"></i>
-            {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart
+            <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart
           </a>
         </div>
           <div className="panel-body collapse in" id="productsreviewrating">
@@ -226,7 +224,12 @@ const ProductDisplay = (props) => {
           <div className="panel-heading" toggle="collapse"
           data-target="#competitorsview"
           aria-expanded="true"
-          aria-controls="competitorsview"><i className="glyphicon glyphicon-triangle-right"></i> Competitors and Markets</div>
+          aria-controls="competitorsview">
+          <a data-toggle="collapse" href="#competitorsview">
+            <i className="glyphicon glyphicon-triangle-right"></i>
+            Competitors and Markets
+          </a>
+        </div>
           <div className="panel-body collapse in" id="competitorsview">
             <Competitor title={props.firstCompetition} />
             <br />
@@ -237,7 +240,11 @@ const ProductDisplay = (props) => {
           <div className="panel-heading" toggle="collapse"
           data-target="#AreaAcceptanceMapElem"
           aria-expanded="true"
-          aria-controls="AreaAcceptanceMapElem"><i className="glyphicon glyphicon-triangle-right"></i> Strength Area Acceptance Map - 2.5 Stars and Above</div>
+          aria-controls="AreaAcceptanceMapElem">
+          <a data-toggle="collapse" href="#AreaAcceptanceMapElem">
+            <i className="glyphicon glyphicon-triangle-right"></i> Strength Area Acceptance Map - 2.5 Stars and Above
+          </a>
+        </div>
           <div id="AreaAcceptanceMapElem" className="panel-body collapse in" style={{height: '300px'}}>
             <AreaAcceptanceMap productid={props.productid} />
           </div>
@@ -246,7 +253,11 @@ const ProductDisplay = (props) => {
           <div className="panel-heading" toggle="collapse"
           data-target="#AreaRejectionMapElem"
           aria-expanded="true"
-          aria-controls="AreaRejectionMapElem"><i className="glyphicon glyphicon-triangle-right"></i> Weak Area Rejection Map - 2.5 Stars and Below</div>
+          aria-controls="AreaRejectionMapElem">
+          <a data-toggle="collapse" href="#AreaRejectionMapElem">
+            <i className="glyphicon glyphicon-triangle-right"></i> Weak Area Rejection Map - 2.5 Stars and Below
+          </a>
+        </div>
           <div id="AreaRejectionMapElem" className="panel-body collapse in" style={{height: '300px'}}>
             <AreaRejectionMap productid={props.productid} />
           </div>
