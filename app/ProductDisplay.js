@@ -181,40 +181,59 @@ const ProductDisplay = (props) => {
       </div>
       <div className={externstyle.aboutCompetitor}>
         <div className="panel panel-success">
-          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart</div>
-          <div className="panel-body" id="productsreviewlikes">
+          <div className="panel-heading"
+            toggle="collapse"
+            data-target="#productsreviewlikes"
+            aria-expanded="true"
+            aria-controls="productsreviewlikes"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart</div>
+          <div className="panel-body collapse in" id="productsreviewlikes">
             <HighChartsReviewLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
         <div className="panel panel-danger">
-          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart</div>
-          <div className="panel-body" id="productsreviewdislikes">
+          <div className="panel-heading" toggle="collapse"
+          data-target="#productsreviewdislikes"
+          aria-expanded="true"
+          aria-controls="productsreviewdislikes"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart</div>
+          <div className="panel-body collapse in" id="productsreviewdislikes">
             <HighChartsReviewDisLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
         <div className="panel panel-primary">
-          <div className="panel-heading">{props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart</div>
-          <div className="panel-body" id="productsreviewrating">
+          <div className="panel-heading" toggle="collapse"
+          data-target="#productsreviewrating"
+          aria-expanded="true"
+          aria-controls="productsreviewrating"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart</div>
+          <div className="panel-body collapse in" id="productsreviewrating">
             <HighChartsReviewRating title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
-        <div className="panel panel-primary">
-          <div className="panel-heading">Competitors and Markets</div>
-          <div className="panel-body">
+        <div className="panel panel-warning">
+          <div className="panel-heading" toggle="collapse"
+          data-target="#competitorsview"
+          aria-expanded="true"
+          aria-controls="competitorsview"><i className="glyphicon glyphicon-triangle-right"></i> Competitors and Markets</div>
+          <div className="panel-body collapse in" id="competitorsview">
             <Competitor title={props.firstCompetition} />
             <br />
             <CompetitorTwo title={props.secondCompetition} />
           </div>
         </div>
         <div className="panel panel-success">
-          <div className="panel-heading">Strength Area Acceptance Map - 2.5 Stars and Above</div>
-          <div id="AreaAcceptanceMapElem" className={externstyle.panelBody}>
+          <div className="panel-heading" toggle="collapse"
+          data-target="#AreaAcceptanceMapElem"
+          aria-expanded="true"
+          aria-controls="AreaAcceptanceMapElem"><i className="glyphicon glyphicon-triangle-right"></i> Strength Area Acceptance Map - 2.5 Stars and Above</div>
+          <div id="AreaAcceptanceMapElem" className="panel-body collapse in" style={{height: '300px'}}>
             <AreaAcceptanceMap productid={props.productid} />
           </div>
         </div>
         <div className="panel panel-danger">
-          <div className="panel-heading">Weak Area Rejection Map - 2.5 Stars and Below</div>
-          <div id="AreaRejectionMapElem" className={externstyle.panelBody}>
+          <div className="panel-heading" toggle="collapse"
+          data-target="#AreaRejectionMapElem"
+          aria-expanded="true"
+          aria-controls="AreaRejectionMapElem"><i className="glyphicon glyphicon-triangle-right"></i> Weak Area Rejection Map - 2.5 Stars and Below</div>
+          <div id="AreaRejectionMapElem" className="panel-body collapse in" style={{height: '300px'}}>
             <AreaRejectionMap productid={props.productid} />
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 const URL = '/areasofacceptance';
+import externstyle from './App.css';
 
 class AreaAcceptanceMap extends React.Component  {
   constructor() {
