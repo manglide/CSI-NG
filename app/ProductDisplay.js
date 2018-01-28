@@ -46,6 +46,7 @@ const ProductDisplay = (props) => {
       <MetaTags>
             <title>{props.productname}</title>
             <meta id="meta-description" name="description" content={props.description} />
+            <meta id="meta-description" name="description" content={props.description `reviews`} />
             <meta id="og:type" property="og:type" content="product" />
             <meta id="og:region" property="og:region" content="NG"/>
             <meta id="og:country-name" property="og:country-name" content="NIGERIA"/>
