@@ -226,8 +226,7 @@ const ProductDisplay = (props) => {
           aria-expanded="true"
           aria-controls="competitorsview">
           <a data-toggle="collapse" href="#competitorsview">
-            <i className="glyphicon glyphicon-triangle-right"></i>
-            Competitors and Markets
+            <i className="glyphicon glyphicon-triangle-right"></i> Competitors and Markets
           </a>
         </div>
           <div className="panel-body collapse in" id="competitorsview">
