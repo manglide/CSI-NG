@@ -185,7 +185,11 @@ const ProductDisplay = (props) => {
             toggle="collapse"
             data-target="#productsreviewlikes"
             aria-expanded="true"
-            aria-controls="productsreviewlikes"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart</div>
+            aria-controls="productsreviewlikes">
+            <a data-toggle="collapse" href="#productsreviewlikes">
+              <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart
+            </a>
+          </div>
           <div className="panel-body collapse in" id="productsreviewlikes">
             <HighChartsReviewLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
@@ -194,7 +198,12 @@ const ProductDisplay = (props) => {
           <div className="panel-heading" toggle="collapse"
           data-target="#productsreviewdislikes"
           aria-expanded="true"
-          aria-controls="productsreviewdislikes"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart</div>
+          aria-controls="productsreviewdislikes">
+          <a data-toggle="collapse" href="#productsreviewdislikes">
+            <i className="glyphicon glyphicon-triangle-right"></i>
+            {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart
+          </a>
+        </div>
           <div className="panel-body collapse in" id="productsreviewdislikes">
             <HighChartsReviewDisLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
@@ -203,7 +212,12 @@ const ProductDisplay = (props) => {
           <div className="panel-heading" toggle="collapse"
           data-target="#productsreviewrating"
           aria-expanded="true"
-          aria-controls="productsreviewrating"><i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart</div>
+          aria-controls="productsreviewrating">
+          <a data-toggle="collapse" href="#productsreviewrating">
+            <i className="glyphicon glyphicon-triangle-right"></i>
+            {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart
+          </a>
+        </div>
           <div className="panel-body collapse in" id="productsreviewrating">
             <HighChartsReviewRating title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
