@@ -1,1 +1,1 @@
-# Consumer Sentiment Location Intelligence Products App - Nigeria
+# Location Intelligence For Brands in Nigeria using Consumer Sentiments And Reviews
