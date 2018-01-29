@@ -18,6 +18,7 @@ import HighChartsReviewLikes from './HighChartsReviewLikes';
 import HighChartsReviewDisLikes from './HighChartsReviewDisLikes';
 import HighChartsReviewRating from './HighChartsReviewRating';
 import MetaTags from 'react-meta-tags';
+import DocumentMeta from 'react-document-meta';
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -41,18 +42,39 @@ const styles = theme => ({
 });
 
 const ProductDisplay = (props) => {
+  const metaJ = {
+    title: props.productname,
+    description: props.description,
+    canonical: `http://csi.com.ng/product/${props.productname}`,
+    meta: {
+      charset: 'utf-8',
+      name: {
+        keywords: `${props.productname} reviews, ${props.description}`,
+        description: props.description,
+        copyright: 'csi.com.ng',
+        language: 'EN',
+        category: props.category,
+        coverage: 'Nigeria',
+        distribution: 'Global',
+        rating: props.rating,
+        'identifier-URL': 'http://csi.com.ng',
+        url: 'http://csi.com.ng',
+        designer: props.manufacturer,
+        owner: props.manufacturer,
+        Classification: props.category,
+        summary: props.description,
+        topic: props.productname + ' Product Review'
+      },
+      'http-equiv': {
+        Expires: '0',
+        Pragma: 'no-cache',
+        'Cache-Control': 'no-cache'
+      }
+    }
+  };
   return (
     <div className={externstyle.productWrapper}>
-      <MetaTags>
-            <title>{props.productname}</title>
-            <meta id="meta-description" name="description" content={props.description} />
-            <meta id="meta-description" name="description" content={props.description `reviews`} />
-            <meta id="og:type" property="og:type" content="product" />
-            <meta id="og:region" property="og:region" content="NG"/>
-            <meta id="og:country-name" property="og:country-name" content="NIGERIA"/>
-            <meta id="og-title" property="og:title" content={props.productname} />
-            <meta id="og-image" property="og:image" content={`${props.image_1}`} />
-      </MetaTags>
+      <DocumentMeta {...metaJ} />
       <div className={externstyle.adsenseBanner}>Adsense Banner Here</div>
       <div className={externstyle.aboutProduct}>
           <div className={externstyle.product}>
@@ -278,3 +300,13 @@ const ProductDisplay = (props) => {
 };
 
 export default withStyles(styles)(ProductDisplay);
+/* <MetaTags>
+      <title>{props.productname}</title>
+      <meta id="meta-description" name="description" content={props.description} />
+      <meta id="meta-description" name="description" content={`${props.description} reviews`} />
+      <meta id="og:type" property="og:type" content="product" />
+      <meta id="og:region" property="og:region" content="NG"/>
+      <meta id="og:country-name" property="og:country-name" content="NIGERIA"/>
+      <meta id="og-title" property="og:title" content={props.productname} />
+      <meta id="og-image" property="og:image" content={`${props.image_1}`} />
+</MetaTags>*/
