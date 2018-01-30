@@ -6,8 +6,6 @@ import {
 } from 'react-router-dom';
 import About from './About';
 import Home from './Home';
-// import logo from './logo.svg';
-import Logo from 'svg-react-loader?name=Logo!./logo.svg';
 import Feedback from './Feedback';
 import GlobalAppBar from './GlobalAppBar';
 import NotFound from './NotFound';

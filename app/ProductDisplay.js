@@ -17,7 +17,6 @@ import CompetitorTwo from './CompetitorTwo';
 import HighChartsReviewLikes from './HighChartsReviewLikes';
 import HighChartsReviewDisLikes from './HighChartsReviewDisLikes';
 import HighChartsReviewRating from './HighChartsReviewRating';
-import MetaTags from 'react-meta-tags';
 import DocumentMeta from 'react-document-meta';
 const styles = theme => ({
   root: {
@@ -102,10 +101,10 @@ const ProductDisplay = (props) => {
                       {props.manufacturer.toUpperCase()}
                    </div>
                    <div className={externstyle.productImageProductPageWrapper}>
-                     <img className={externstyle.productImage} height="224"
+                     <img className={externstyle.productImage}
                        itemprop="image"
                        // src="https://placeimg.com/750/224/nature"
-                       src={`${props.image_1}`}
+                       src={`${props.image_2}`}
                        alt={props.productname}
                        title={props.productname}
                      />

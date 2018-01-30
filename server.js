@@ -60,7 +60,7 @@ if (isDeveloping) {
           "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
           "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
-          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
+          "CONCAT('http://localhost/csi/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE " +
@@ -84,7 +84,7 @@ if (isDeveloping) {
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
           "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
-          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
+          "CONCAT('http://localhost/csi/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
@@ -247,7 +247,7 @@ if (isDeveloping) {
           "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
           "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
-          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
+          "CONCAT('http://localhost/csi/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE " +
@@ -271,7 +271,7 @@ if (isDeveloping) {
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
           "CONCAT('http://localhost/csi/', all_products.product_image_1) AS productImage_1, " +
-          "CONCAT('http://localhost/csi/', all_products.product_image_2) AS productImage_2  FROM all_products " +
+          "CONCAT('http://localhost/csi/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
