@@ -65,7 +65,7 @@ class GlobalAppBar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography type="title" className={classes.flex} style={{color: '#fff'}}>
-              CSI - NG
+              Nigeria Brands
             </Typography>
             {auth && (
               <div>
