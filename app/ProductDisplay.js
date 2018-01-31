@@ -235,7 +235,7 @@ const ProductDisplay = (props) => {
             <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart
           </a>
         </div>
-          <div className="panel-body collapse in" id="productsreviewdislikes">
+          <div className="panel-body collapse" id="productsreviewdislikes">
             <HighChartsReviewDisLikes title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
@@ -248,7 +248,7 @@ const ProductDisplay = (props) => {
             <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart
           </a>
         </div>
-          <div className="panel-body collapse in" id="productsreviewrating">
+          <div className="panel-body collapse" id="productsreviewrating">
             <HighChartsReviewRating title1={props.productname} title2={props.firstCompetition} title3={props.secondCompetition} />
           </div>
         </div>
@@ -261,7 +261,7 @@ const ProductDisplay = (props) => {
             <i className="glyphicon glyphicon-triangle-right"></i> Competitors and Markets
           </a>
         </div>
-          <div className="panel-body collapse in" id="competitorsview">
+          <div className="panel-body collapse" id="competitorsview">
             <Competitor title={props.firstCompetition} />
             <br />
             <CompetitorTwo title={props.secondCompetition} />
