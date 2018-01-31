@@ -43,7 +43,7 @@ class Comments extends React.Component {
             </div>
             <div className={externstyle.UserAndComment}>
               <div>
-                <span className={externstyle.individualComment} itemprop="author">Anonymous</span>
+                <span className={externstyle.individualComment} itemprop="author"><b>Anonymous</b></span>
               </div>
               <span className={externstyle.individualComment} itemprop="name">{item.comment}</span>
               <div className={externstyle.smallRatingDiv} itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">

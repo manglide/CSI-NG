@@ -85,7 +85,7 @@ class ProductCard extends React.Component {
             subheader={this.props.manufacturer}
           />
           <CardMedia>
-            <img width="281" height="224"  alt={this.props.productname} title={this.props.productname}
+            <img alt={this.props.productname} title={this.props.productname}
               src={`${this.props.image_1}`}  />
             <div style={{fontSize: 24, padding: 12}}>
               {
