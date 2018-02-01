@@ -60,8 +60,8 @@ if (isDeveloping) {
           "SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating," +
           "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE " +
@@ -84,8 +84,8 @@ if (isDeveloping) {
           "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
@@ -120,8 +120,8 @@ if (isDeveloping) {
           "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN products ON all_products.id = products.id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
@@ -247,8 +247,8 @@ if (isDeveloping) {
           "SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating," +
           "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE " +
@@ -271,8 +271,8 @@ if (isDeveloping) {
           "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
           "WHERE all_products.about <> '' AND all_products.title = '" + req.body.data + "' " +
@@ -365,8 +365,8 @@ if (isDeveloping) {
           "COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
           " all_products.competitor_1 AS firstCompetition, all_products.competitor_2 AS secondCompetition, all_products.ingredients AS ingredients, " +
           "product_categories.category AS category, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
-          "CONCAT('http://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/281x224/', SUBSTR(all_products.product_image_1,8)) AS productImage_1, " +
+          "CONCAT('https://asknigeria.com.ng/brands/images/750x224/', SUBSTR(all_products.product_image_2,8)) AS productImage_2 FROM all_products " +
           "JOIN product_review ON all_products.id = product_review.product_id " +
           "JOIN products ON all_products.id = products.id " +
           "JOIN product_categories ON all_products.category = product_categories.id " +
