@@ -81,7 +81,7 @@ class CompetitorProductCard extends React.Component {
           <CardMedia>
             {
               (this.props.image_1 === '' || this.props.image_1 === undefined) ?
-              <img src="http://localhost/csi/images/default-product.png" alt={this.props.productname} title={this.props.productname} />
+              <img src="https://asknigeria.com.ng/brands/images/default-product.png" alt={this.props.productname} title={this.props.productname} />
               :
               <img src={`${this.props.image_1}`} alt={this.props.productname} title={this.props.productname} />
             }
