@@ -74,7 +74,7 @@ const ProductDisplay = (props) => {
   return (
     <div className={externstyle.productWrapper}>
       <DocumentMeta {...metaJ} />
-      <div className={externstyle.adsenseBanner}>Adsense Banner Here</div>
+      <div className={externstyle.adsenseBanner}></div>
       <div className={externstyle.aboutProduct}>
           <div className={externstyle.product}>
               <div className={externstyle.productDisplay}>
