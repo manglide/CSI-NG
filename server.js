@@ -18,7 +18,8 @@ const connection = mysql.createConnection({
 });
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
+// const port = isDeveloping ? 3344 : process.env.PORT;
+const port = isDeveloping ? 3344 : 3366;
 const app = express();
 
 const cors = require('cors');
