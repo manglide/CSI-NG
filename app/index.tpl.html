@@ -80,7 +80,6 @@
       align-self: center;
       border-radius: 50%;
       }
-
       .ipl-progress-indicator-head {
       background-color: #c6dafc;
       height: 4px;
@@ -193,34 +192,27 @@
         }
       ;
       }
-
       @keyframes spin {
     from {transform:rotate(0deg);}
     to {transform:rotate(360deg);}
     }
-
 @keyframes fadeIn {
     0% {
         opacity: .25;
     }
-
     50% {
         opacity: .5;
     }
-
     75% {
         opacity: .75;
     }
-
     100% {
         opacity: .5;
     }
 }
-
 #outer-wheel {
   animation: spin 4s infinite linear;
 }
-
 #inner-wheel {
   animation: fadeIn 2s infinite linear;
 }
@@ -237,7 +229,6 @@
         });
         googlemap.fitBounds(bounds);
       }
-
       /**
        * Process each point in a Geometry, regardless of how deep the points may lie.
        * @param {google.maps.Data.Geometry} geometry The structure to process

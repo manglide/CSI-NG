@@ -6,7 +6,8 @@ const webpack = require('webpack');
 const webpackMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
-const Promise = require('q').Promise;
+// const Promise = require('q').Promise;
+const Promise = require('es6-promise').Promise;
 
 const mysql = require('mysql');
 
@@ -18,8 +19,8 @@ const connection = mysql.createConnection({
 });
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-// const port = isDeveloping ? 3344 : process.env.PORT;
-const port = isDeveloping ? 3344 : 3366;
+const port = isDeveloping ? 3344 : process.env.PORT;
+// const port = isDeveloping ? 3344 : 3366;
 const app = express();
 
 const cors = require('cors');
@@ -47,15 +48,6 @@ if (isDeveloping) {
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
   app.get('/products', function (req, res) {
-    /* const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, " +
-    			"COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating, all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, " +
-          "all_products.ingredients AS ingredients, product_categories.category AS category, " +
-          "CONCAT('localhost/csi/', all_products.product_image_1) AS productImage_1, " +
-          "CONCAT('localhost/csi/', all_products.product_image_2) AS productImage_2 FROM all_products " +
-    			"JOIN product_review ON all_products.id = product_review.product_id " +
-          "JOIN product_categories ON all_products.category = product_categories.id " +
-    			"WHERE all_products.about <> ''  " +
-    			"GROUP BY all_products.id ORDER BY rating DESC";*/
     const sql = "SELECT all_products.id AS product_ID, all_products.title AS productname,all_products.about AS description, all_products.manufacturer AS manufacturer, " +
           "SUM(product_review.likes) AS likes, SUM(product_review.dislikes) AS dislikes, COUNT(product_review.user_comments) AS usercomments, AVG(product_review.rating) AS rating," +
           "all_products.price AS price, COUNT(`user_location_lat`) + COUNT(`user_location_lon`) AS locationcount, all_products.ingredients AS ingredients, " +

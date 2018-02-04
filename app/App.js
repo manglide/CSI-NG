@@ -16,6 +16,7 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import purple from 'material-ui/colors/purple';
 import green from 'material-ui/colors/green';
 import LocationsNearBy from './LocationsNearBy';
+// import ReactSEO from 'react-seo';
 const theme = createMuiTheme({
   palette: {
     primary: green,
@@ -29,6 +30,9 @@ const theme = createMuiTheme({
     htmlFontSize: 7,
   },
 });
+
+// ReactSEO.startMagic([{url: '/about', isFullMatch: true, ajaxFunction: fetchGameData, renderDOM)
+
 class App extends React.Component {
 
 componentDidMount() {

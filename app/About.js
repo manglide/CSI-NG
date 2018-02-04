@@ -19,7 +19,6 @@ const styles = theme => ({
     padding: theme.spacing.unit * 2,
   },
 });
-
 const About = () => {
   return (
               <div className={externstyle.aboutContent}>
