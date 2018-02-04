@@ -39,6 +39,7 @@
     "material-ui-rating": "^1.4.0",
     "mdi-material-ui": "^2.0.1",
     "mysql": "^2.15.0",
+    "prerender-node": "^2.7.4",
     "promise": "^8.0.1",
     "react": "^16.1.1",
     "react-css-themr": "^2.1.2",

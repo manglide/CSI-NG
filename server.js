@@ -25,7 +25,7 @@ const app = express();
 
 const cors = require('cors');
 app.use(cors());
-
+app.use(require('prerender-node'));
 const bodyParser = require('body-parser');
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
