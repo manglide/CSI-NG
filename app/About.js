@@ -27,7 +27,7 @@ const About = () => {
                     Were a technology company that uses location intelligence to build meaningful consumer experiences and business solutions.
                     Our location intelligence technology helps brands to locate, message and assess their own consumer and competitors's personal finance, strenghts and spending patterns which will help
                     in making purchasing and business centric decisions.<br />
-                    For further enquiries, please send a mail to customercare@nigeriabrands.com.ng for customer related issues and enquiries@nigeriabrands.com.ng for enquiries.
+                    For further enquiries, please send a mail to customercare@brandsnigeria.com.ng for customer related issues and enquiries@brandsnigeria.com.ng for enquiries.
                   </div>
               </div>
         );

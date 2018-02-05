@@ -24,7 +24,7 @@ const Feedback = () => {
   return (
               <div className={externstyle.aboutContent}>
                   <div className={externstyle.about}>
-                    For further enquiries, please send a mail to customercare@nigeriabrands.com.ng for customer related issues and enquiries@nigeriabrands.com.ng for enquiries.
+                    For further enquiries, please send a mail to customercare@brandsnigeria.com.ng for customer related issues and enquiries@brandsnigeria.com.ng for enquiries.
                   </div>
               </div>
         );

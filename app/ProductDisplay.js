@@ -217,7 +217,7 @@ const ProductDisplay = (props) => {
             data-target="#productsreviewlikes"
             aria-expanded="true"
             aria-controls="productsreviewlikes">
-            <a data-toggle="collapse" href="#productsreviewlikes">
+            <a data-toggle="collapse" className="panelanchortext" href="#productsreviewlikes">
               <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Likes Chart
             </a>
           </div>
@@ -230,7 +230,7 @@ const ProductDisplay = (props) => {
           data-target="#productsreviewdislikes"
           aria-expanded="true"
           aria-controls="productsreviewdislikes">
-          <a data-toggle="collapse" href="#productsreviewdislikes">
+          <a data-toggle="collapse" href="#productsreviewdislikes" className="panelanchortext">
             <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} DisLikes Chart
           </a>
         </div>
@@ -243,7 +243,7 @@ const ProductDisplay = (props) => {
           data-target="#productsreviewrating"
           aria-expanded="true"
           aria-controls="productsreviewrating">
-          <a data-toggle="collapse" href="#productsreviewrating">
+          <a data-toggle="collapse" className="panelanchortext" href="#productsreviewrating">
             <i className="glyphicon glyphicon-triangle-right"></i> {props.productname} , {props.firstCompetition} and {props.secondCompetition} Rates Chart
           </a>
         </div>
@@ -256,7 +256,7 @@ const ProductDisplay = (props) => {
           data-target="#competitorsview"
           aria-expanded="true"
           aria-controls="competitorsview">
-          <a data-toggle="collapse" href="#competitorsview">
+          <a data-toggle="collapse" className="panelanchortext" href="#competitorsview">
             <i className="glyphicon glyphicon-triangle-right"></i> Competitors and Markets
           </a>
         </div>
@@ -271,7 +271,7 @@ const ProductDisplay = (props) => {
           data-target="#AreaAcceptanceMapElem"
           aria-expanded="true"
           aria-controls="AreaAcceptanceMapElem">
-          <a data-toggle="collapse" href="#AreaAcceptanceMapElem">
+          <a data-toggle="collapse" className="panelanchortext" href="#AreaAcceptanceMapElem">
             <i className="glyphicon glyphicon-triangle-right"></i> Strength Area Acceptance Map - 2.5 Stars and Above
           </a>
         </div>
@@ -284,7 +284,7 @@ const ProductDisplay = (props) => {
           data-target="#AreaRejectionMapElem"
           aria-expanded="true"
           aria-controls="AreaRejectionMapElem">
-          <a data-toggle="collapse" href="#AreaRejectionMapElem">
+          <a data-toggle="collapse" className="panelanchortext" href="#AreaRejectionMapElem">
             <i className="glyphicon glyphicon-triangle-right"></i> Weak Area Rejection Map - 2.5 Stars and Below
           </a>
         </div>
