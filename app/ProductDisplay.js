@@ -74,7 +74,6 @@ const ProductDisplay = (props) => {
   return (
     <div className={externstyle.productWrapper}>
       <DocumentMeta {...metaJ} />
-      <div className={externstyle.adsenseBanner}></div>
       <div className={externstyle.aboutProduct}>
           <div className={externstyle.product}>
               <div className={externstyle.productDisplay}>
@@ -308,4 +307,6 @@ export default withStyles(styles)(ProductDisplay);
       <meta id="og:country-name" property="og:country-name" content="NIGERIA"/>
       <meta id="og-title" property="og:title" content={props.productname} />
       <meta id="og-image" property="og:image" content={`${props.image_1}`} />
-</MetaTags> */
+</MetaTags>
+<div className={externstyle.adsenseBanner}></div>
+*/
