@@ -44,7 +44,7 @@ const ProductDisplay = (props) => {
   const metaJ = {
     title: props.productname,
     description: props.description,
-    canonical: `http://csi.com.ng/product/${props.productname}`,
+    canonical: `https://brandsnigeria.com.ng/product/${props.productname}`,
     meta: {
       charset: 'utf-8',
       name: {
@@ -56,8 +56,8 @@ const ProductDisplay = (props) => {
         coverage: 'Nigeria',
         distribution: 'Global',
         rating: props.rating,
-        'identifier-URL': 'http://csi.com.ng',
-        url: 'http://csi.com.ng',
+        'identifier-URL': 'https://brandsnigeria.com.ng',
+        url: 'https://brandsnigeria.com.ng',
         designer: props.manufacturer,
         owner: props.manufacturer,
         Classification: props.category,
